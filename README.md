@@ -1,9 +1,12 @@
-[![License](https://img.shields.io/hexpm/l/torch.svg)](https://github.com/mojotech/torch/blob/master/LICENSE)
-[![Hex.pm](https://img.shields.io/hexpm/v/torch.svg)](https://hex.pm/packages/torch)
+# Torch
+
 [![Build Status](https://github.com/mojotech/torch/actions/workflows/ci.yml/badge.svg?branch=master)](https://github.com/mojotech/torch/actions/workflows/ci.yml)
 [![Coverage Status](https://coveralls.io/repos/github/mojotech/torch/badge.svg?branch=master)](https://coveralls.io/github/mojotech/torch?branch=master)
-
-# Torch
+[![Module Version](https://img.shields.io/hexpm/v/torch.svg)](https://hex.pm/packages/torch)
+[![Hex Docs](https://img.shields.io/badge/hex-docs-lightgreen.svg)](https://hexdocs.pm/torch/)
+[![Total Download](https://img.shields.io/hexpm/dt/torch.svg)](https://hex.pm/packages/torch)
+[![License](https://img.shields.io/hexpm/l/torch.svg)](https://github.com/mojotech/torch/blob/master/LICENSE.md)
+[![Last Updated](https://img.shields.io/github/last-commit/mojotech/torch.svg)](https://github.com/mojotech/torch/commits/master)
 
 Torch is a rapid admin generator for Phoenix applications. It creates custom templates and relies
 on the Phoenix HTML generator under the hood.
@@ -14,37 +17,37 @@ on the Phoenix HTML generator under the hood.
 
 To install Torch, perform the following steps:
 
-1. Add `torch` to your list of dependencies in `mix.exs`. Then, run `mix deps.get`:
+1.  Add `:torch` to your list of dependencies in `mix.exs`. Then, run `mix deps.get`:
 
-```elixir
-def deps do
-  [
-    {:torch, "~> 3.6"}
-  ]
-end
-```
+    ```elixir
+    def deps do
+      [
+        {:torch, "~> 3.6"}
+      ]
+    end
+    ```
 
-2. Add a `Plug.Static` plug to your `endpoint.ex`:
+2.  Add a `Plug.Static` plug to your `endpoint.ex`:
 
-```elixir
-plug(
-  Plug.Static,
-  at: "/torch",
-  from: {:torch, "priv/static"},
-  gzip: true,
-  cache_control_for_etags: "public, max-age=86400"
-)
-```
+    ```elixir
+    plug(
+      Plug.Static,
+      at: "/torch",
+      from: {:torch, "priv/static"},
+      gzip: true,
+      cache_control_for_etags: "public, max-age=86400"
+    )
+    ```
 
-3. Configure Torch by adding the following to your `config.exs`.
+3.  Configure Torch by adding the following to your `config.exs`.
 
-```
-config :torch,
-  otp_app: :my_app_name,
-  template_format: "eex" || "slime"
-```
+    ```elixir
+    config :torch,
+      otp_app: :my_app_name,
+      template_format: "eex" || "slime"
+    ```
 
-4. Run `mix torch.install`
+4.  Run `mix torch.install`
 
 **NOTE:** You can also choose to use `slime` templates, but you will need to
 first [install Phoenix Slime](https://github.com/slime-lang/phoenix_slime) and
@@ -217,3 +220,9 @@ config :torch,
   i18n_backend: MyApp.CustomMessagesBackend
   template_format: "eex" || "slime"
 ```
+
+## Copyright and License
+
+Copyright (c) 2016 Infinite Red, Inc.
+
+This software is released under the [MIT License](./LICENSE.md).

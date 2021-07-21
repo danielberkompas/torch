@@ -1,17 +1,17 @@
 defmodule Torch.MixProject do
   use Mix.Project
 
+  @source_url "https://github.com/mojotech/torch"
+  @version "3.6.3"
+
   def project do
     [
       app: :torch,
-      version: "3.6.3",
+      version: @version,
       elixir: "~> 1.8",
       start_permanent: Mix.env() == :prod,
       compilers: [:phoenix, :gettext] ++ Mix.compilers(),
       name: "Torch",
-      description: "Rapid admin generator for Phoenix",
-      source_url: "https://github.com/mojotech/torch",
-      homepage_url: "https://github.com/mojotech/torch",
       test_paths: ["test/mix", "test/torch"],
       test_coverage: [tool: ExCoveralls],
       preferred_cli_env: [
@@ -48,7 +48,7 @@ defmodule Torch.MixProject do
       {:jason, ">= 0.0.0", only: [:dev, :test]},
       {:excoveralls, ">= 0.0.0", only: [:dev, :test]},
       {:credo, "~> 1.1", only: [:dev, :test]},
-      {:ex_doc, ">= 0.0.0", only: [:dev, :test]},
+      {:ex_doc, ">= 0.0.0", only: [:dev, :test], runtime: false},
       {:ex_unit_notifier, "~> 1.0", only: [:test]},
       {:mix_test_watch, "~> 1.0", only: [:dev], runtime: false}
     ]
@@ -56,19 +56,28 @@ defmodule Torch.MixProject do
 
   defp package do
     [
+      description: "Rapid admin generator for Phoenix",
       maintainers: ["MojoTech"],
       licenses: ["MIT"],
+      files: ~w(lib priv mix.exs README.md LICENSE.md CHANGELOG.md CODE_OF_CONDUCT.md),
       links: %{
-        "Github" => "https://github.com/mojotech/torch"
-      },
-      files: ~w(lib priv mix.exs README.md)
+        "Github" => @source_url
+      }
     ]
   end
 
   defp docs do
     [
+      extras: [
+        "CHANGELOG.md": [title: "Changelog"],
+        "CODE_OF_CONDUCT.md": [title: "Code of Conduct"],
+        "LICENSE.md": [title: "License"],
+        "README.md": [title: "Overview"]
+      ],
       main: "readme",
-      extras: ["README.md"]
+      source_url: @source_url,
+      source_ref: "v#{@version}",
+      formatters: ["html"]
     ]
   end
 end

@@ -7,7 +7,7 @@
 # The directory Mix downloads your dependencies sources to.
 /deps/
 
-# Where 3rd-party dependencies like ExDoc output generated docs.
+# Where third-party dependencies like ExDoc output generated docs.
 /doc/
 
 # Ignore .fetch files in case you like to edit your project deps locally.
@@ -22,14 +22,15 @@ erl_crash.dump
 # Ignore package tarball (built via "mix hex.build").
 torch-*.tar
 
-.elixir_ls/*
-node_modules/
-.DS_Store
+# Temporary files, for example, from tests.
+/tmp/
 
+# Misc.
+/node_modules/
+.DS_Store
 .dir-locals.el
 .env
-
-# Translation .mo files
-/priv/gettext/*/LC_MESSAGES/*.mo
-
 shell.nix
+
+# Translation .mo files.
+/priv/gettext/*/LC_MESSAGES/*.mo
